@@ -8,8 +8,8 @@ Contact me by e-mail ( dlin.tw gmail )
 Features
 ========
 
-* C reserved word included
-* C++ reserved word included
+* search C/C++ keyword and mapping to GO
+* display useful hints for C/C++ users
 
 Install
 =======
@@ -20,9 +20,14 @@ Note: support Go 1 only (you may require download on http://weekly.golang.org).
 
 commands::
 
+  // method 1
   git clone https://github.com/dlintw/cpp2go
   cd cpp2go
   make
+  cp cpp2go <your_path>
+
+  // method 2
+  go get github.com/dlintw/cpp2go
 
 Usage
 =====

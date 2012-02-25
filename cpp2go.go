@@ -153,7 +153,7 @@ var g_dic = map[string]string{
 	"iomanip":  "godoc fmt",
 	"iostream": "godoc fmt",
 	"main": `http://weekly.golang.org/doc/go_spec.html#Packages
-To return error code to OS, use os.Exit() instead of return from main()
+  To return error code to OS, use os.Exit() instead of return from main()
 `,
 	"MAX_RAND": "X",
 	"NULL":     "nil",
@@ -166,10 +166,45 @@ To return error code to OS, use os.Exit() instead of return from main()
 	"argc": "len(os.Args",
 
 	// common functions
+	"atof":   "strconv.ParseFloat",
+	"atoi":   "strconv.Atoi/ParseInt/ParseUint",
 	"getopt": "godoc flag",
-	"printf": `fmt.Println/Print/Printf
-Go's Print is powerful, it could print any type with String() member.
-For xxxf() function, we can use "go tool vet *.go" to validate % flags
+	"itoa":   "strconv.Itoa/FormatInt/FormatUint",
+	"printf": `fmt.Print/Printf/Println
+  Go's Print is powerful, it could print any type with String() member.
+  For xxxf() function, we can use "go tool vet *.go" to validate % flags
+`,
+	"scanf":   "fmt.Scan/Scanf/Scanln",
+	"sprintf": "fmt.Sprint/Sprintf/Sprintln",
+
+	// C++ STL
+	"hashmap": "see map",
+	"map": `map like C++'s hashmap, it is unordered.
+  var m = map[string]int{ "Mon":1, "Tue":2 }
+  for k,v := range m { fmt.Println("k=",k,"v=",v"} // display
+  // NOTE: iterate order is dynamic, don't treat it is consistent
+  m["Wed"] = 2 // insert
+  m["Wed"] = 3 // update
+  delete(m,"Wed") // delete
+  var m2 = make(map[string]string, 1e4) // pre-allocate initial size
+`,
+	"queue": `Use http://weekly.golang.org/doc/go_spec.html#Slice_types
+  ref:http://code.google.com/p/go-wiki/wiki/SliceTricks
+  var q = []string
+  q = append(q, "Jan") // push
+  q = append(q, "Feb") // push
+  v, q = q[len(q)-1], q[:len(q)-1] // pop, use trick of assign multiple value
+`,
+	"vector": `Use http://weekly.golang.org/doc/go_spec.html#Slice_types
+  ref:http://code.google.com/p/go-wiki/wiki/SliceTricks
+  var v = []int
+  v = append(v, 3) // append an element
+  var v2 = []int{5,6}
+  for i,v := range(v) { fmt.Println("index=", i, "value=", v)} // display
+  v = append(v, v2...) // append another vector
+  v = append(a[:1], append([]int{4}, a[1:]...)...) // insert 4 before v[1]
+  v[3]=99 // update
+  v = append(a[:1], a[2:]...) // delete element v[1]
 `,
 }
 
